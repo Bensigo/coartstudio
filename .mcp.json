@@ -1,0 +1,28 @@
+{
+    "mcpServers": {
+      "firecrawl-mcp": {
+        "command": "npx",
+        "args": ["-y", "firecrawl-mcp"],
+        "env": {
+          "FIRECRAWL_API_KEY": "fc-0464a8a26f764edda6ce3f2ee6589974"
+        }
+      },
+      "playwright": {
+        "command": "npx",
+        "args": [
+          "@playwright/mcp@latest",
+          "--isolated",
+          "--browser", "chrome"
+        ]
+      },
+      "browser-tools": {
+        "command": "npx",
+        "args": ["-y", "@browserbasehq/mcp@latest"],
+        "env": {
+          "BROWSER_PATH": "/Applications/Dia.app/Contents/MacOS/Dia",
+          "BROWSER_TYPE": "chromium",
+          "BROWSER_VERSION": "138.0.7204.185"
+        }
+      }
+    }
+  }

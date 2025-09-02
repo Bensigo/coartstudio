@@ -5,10 +5,9 @@ import { useState } from 'react'
 interface ExpandableCardProps {
   title: string
   description: string
-  index: number
 }
 
-export default function ExpandableCard({ title, description, index }: ExpandableCardProps) {
+export default function ExpandableCard({ title, description }: ExpandableCardProps) {
   const [isExpanded, setIsExpanded] = useState(false)
 
   return (

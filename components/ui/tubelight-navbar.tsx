@@ -3,13 +3,13 @@
 import React, { useState } from "react"
 import { motion } from "framer-motion"
 import Link from "next/link"
-import { LucideIcon, type Icon } from "lucide-react"
+import { LucideIcon } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 interface NavItem {
   name: string
   url: string
-  icon: React.ComponentType<any>
+  icon: LucideIcon
 }
 
 interface NavBarProps {

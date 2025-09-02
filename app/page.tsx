@@ -1,9 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import ChatWidget from './components/ChatWidget'
 import { MarqueeDemo } from '@/components/ui/marquee-demo'
-import { Feature108 } from '@/components/ui/feature108'
 import { AnimatedTestimonialsDemo } from '@/components/ui/animated-testimonials-demo'
 import { TimelineDemo } from '@/components/ui/timeline-demo'
 import { NavBar } from '@/components/ui/tubelight-navbar'

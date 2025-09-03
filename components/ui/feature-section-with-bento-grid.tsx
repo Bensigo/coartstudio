@@ -15,7 +15,7 @@ function Feature() {
                 Creative Solutions for Your Business
               </h2>
               <p className="text-lg max-w-xl lg:max-w-lg leading-relaxed tracking-tight text-muted-foreground text-left">
-                We provide comprehensive digital solutions to help your business thrive in the modern marketplace.
+              We provide comprehensive digital solutions to help your business thrive in the modern marketplace.
               </p>
             </div>
           </div>
@@ -23,9 +23,9 @@ function Feature() {
             <div className="bg-blue-50 rounded-lg p-6 flex justify-between flex-col col-span-1 md:col-span-2 lg:col-span-2 row-span-2">
               <Code className="w-8 h-8 stroke-1 text-blue-600" />
               <div className="flex flex-col">
-                <h3 className="text-xl tracking-tight">Web Development</h3>
+                <h3 className="text-xl tracking-tight">Web Development & Mobile Apps</h3>
                 <p className="text-muted-foreground max-w-sm text-base">
-                  Custom web applications built with modern technologies like React, Next.js, and TypeScript for optimal performance.
+                Custom web and cross-platform mobile applications built with modern technologies.
                 </p>
               </div>
             </div>
@@ -43,7 +43,7 @@ function Feature() {
             <div className="bg-green-50 rounded-lg p-6 flex justify-between flex-col">
               <Smartphone className="w-8 h-8 stroke-1 text-green-600" />
               <div className="flex flex-col">
-                <h3 className="text-xl tracking-tight">Mobile Apps</h3>
+                <h3 className="text-xl tracking-tight">AI Automation</h3>
                 <p className="text-muted-foreground text-sm">
                   Cross-platform mobile applications.
                 </p>

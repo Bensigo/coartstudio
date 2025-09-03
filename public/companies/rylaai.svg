@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 96" role="img" aria-label="Ryla logo">
+  <title>Ryla</title>
+  <defs>
+    <mask id="cutmask">
+      <rect width="100%" height="100%" fill="black"/>
+      <text x="0" y="72"
+            font-family="Inter, Poppins, Avenir, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif"
+            font-weight="800"
+            font-size="72"
+            letter-spacing="1"
+            fill="white"
+            text-rendering="geometricPrecision">Ryla</text>
+      <!-- Pixel-aligned cuts -->
+      <rect x="0" y="50" width="100%" height="6" fill="black" shape-rendering="crispEdges"/>
+      <rect x="0" y="62" width="100%" height="6" fill="black" shape-rendering="crispEdges"/>
+      <rect x="0" y="74" width="100%" height="6" fill="black" shape-rendering="crispEdges"/>
+    </mask>
+  </defs>
+  <rect width="100%" height="100%" fill="#B390F9" mask="url(#cutmask)"/>
+</svg>

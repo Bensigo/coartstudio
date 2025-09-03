@@ -36,7 +36,7 @@ export default function Home() {
       <section className="bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-8">
           <p className="text-gray-600 text-sm font-medium mb-8">
-            Trusted by fast-growing SaaS companies
+             Trusted by compaines 
           </p>
           <MarqueeDemo />
         </div>
@@ -61,7 +61,7 @@ export default function Home() {
       {/* CTA Section */}
       <section id="contact">
         <Cta4 
-          title="Ready to Scale Your SaaS Business?"
+          title="Our clients are building the future"
           description="Join hundreds of successful SaaS companies that trust us to drive their growth with proven strategies and results."
           buttonText="Schedule a Free Demo"
           buttonUrl="/demo"

@@ -29,7 +29,7 @@ export default function Home() {
        <NavBar items={navItems} />
 
       {/* Hero Section */}
-      <section id="hero">
+      <section id="hero"  className="pt-20">
         <Hero />
       </section>
 

@@ -45,6 +45,18 @@ export default function Home() {
       <section id="services">
         <Feature />
       </section>
+            <section className="py-3 bg-white">
+              <div className="container mx-auto px-4 text-center">
+                <Link
+                  href="https://calendly.com/hello-coart/30min"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center px-8 py-3 border border-transparent rounded-full text-base font-medium bg-gradient-to-r from-blue-500 to-purple-600 text-white  md:py-4 md:text-lg md:px-10 transition-all duration-200 shadow-lg"
+                >
+                  Schedule a Discovery Call
+                </Link>
+              </div>
+            </section>
             {/* Portfolio Section */}
        <section id="portfolio">
         <Gallery6 />
@@ -62,15 +74,15 @@ export default function Home() {
       <section id="contact">
         <Cta4 
           title="Our clients are building the future"
-          description="Join hundreds of successful SaaS companies that trust us to drive their growth with proven strategies and results."
-          buttonText="Schedule a Free Demo"
-          buttonUrl="/demo"
+          description="Join the startups, entrepreneurs, and businesses that trust CoArt Studio to bring their ideas to life and power their growth."
+          buttonText="Schedule a Discovery Call"
+          buttonUrl="https://calendly.com/hello-coart/30min"
           items={[
-            "Proven SEO & PPC Results",
-            "24/7 Dedicated Support",
-            "Custom Growth Strategies",
-            "Performance Analytics",
-            "Scalable Solutions"
+            "Creative Brand & Identity Design",
+            "Custom Websites & Mobile Apps",
+            "Digital Strategy & Content Execution",
+            "AI-Powered Automation & Efficiency",
+            "Scalable Growth & Performance"
           ]}
         />
       </section>
@@ -80,9 +92,9 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
-              <h3 className="text-2xl font-bold mb-4">SimpleTiger</h3>
+              <h3 className="text-2xl font-bold mb-4">CoArt Studio</h3>
               <p className="text-gray-400">
-                The fastest-growing SaaS marketing agency focused on delivering results that matter.
+              Design, strategy, and automation—everything your business needs to succeed. Awarded 2025’s most innovative technology agency
               </p>
             </div>
             
@@ -99,26 +111,26 @@ export default function Home() {
             <div>
               <h4 className="font-bold mb-4">Company</h4>
               <ul className="space-y-2 text-gray-400">
-                <li><Link href="/about" className="hover:text-white transition-colors">About</Link></li>
-                <li><Link href="/careers" className="hover:text-white transition-colors">Careers</Link></li>
-                <li><Link href="/blog" className="hover:text-white transition-colors">Blog</Link></li>
-                <li><Link href="/contact" className="hover:text-white transition-colors">Contact</Link></li>
+                <li><Link href="#" className="hover:text-white transition-colors">About</Link></li>
+                <li><Link href="#" className="hover:text-white transition-colors">Careers</Link></li>
+                <li><Link href="#" className="hover:text-white transition-colors">Blog</Link></li>
+               
               </ul>
             </div>
             
             <div>
               <h4 className="font-bold mb-4">Resources</h4>
               <ul className="space-y-2 text-gray-400">
-                <li><Link href="/case-studies" className="hover:text-white transition-colors">Case Studies</Link></li>
-                <li><Link href="/resources" className="hover:text-white transition-colors">Resources</Link></li>
-                <li><Link href="/pricing" className="hover:text-white transition-colors">Pricing</Link></li>
-                <li><Link href="/demo" className="hover:text-white transition-colors">Book a Demo</Link></li>
+                <li><Link href="#" className="hover:text-white transition-colors">Case Studies</Link></li>
+                <li><Link href="#" className="hover:text-white transition-colors">Resources</Link></li>
+               
+                <li><Link href="https://calendly.com/hello-coart/30min" className="hover:text-white transition-colors">Book a discovery call</Link></li>
               </ul>
             </div>
           </div>
           
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2024 SimpleTiger. All rights reserved.</p>
+            <p>&copy; 2025 CoArt Studio. All rights reserved.</p>
           </div>
         </div>
       </footer>

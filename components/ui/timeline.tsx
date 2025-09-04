@@ -41,7 +41,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
           Our Proven Process
         </h2>
         <p className="text-neutral-700 text-base md:text-lg lg:text-xl max-w-3xl">
-          We follow a systematic approach to deliver consistent results for every SaaS client. Here&apos;s how we make it happen.
+        We follow a systematic approach to deliver consistent results for every client. Here&rsquo;s how we make it happen.
         </p>
       </div>
 

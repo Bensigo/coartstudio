@@ -35,7 +35,7 @@ function Feature() {
               <div className="flex flex-col">
                 <h3 className="text-xl tracking-tight">Brand Design</h3>
                 <p className="text-muted-foreground text-sm">
-                  Complete brand identity systems.
+                Comprehensive branding built to stand out.
                 </p>
               </div>
             </div>
@@ -45,7 +45,7 @@ function Feature() {
               <div className="flex flex-col">
                 <h3 className="text-xl tracking-tight">AI Automation</h3>
                 <p className="text-muted-foreground text-sm">
-                  Cross-platform mobile applications.
+                Harness AI to work faster, smarter, better.
                 </p>
               </div>
             </div>

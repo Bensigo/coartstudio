@@ -22,8 +22,19 @@ function Hero() {
   }, [titleNumber, titles]);
 
   return (
-    <div className="w-full">
-      <div className="container mx-auto">
+    <div className="w-full relative overflow-hidden">
+      <div className="absolute inset-0 opacity-50 -z-10">
+        <div className="absolute top-0 left-1/4 w-0.5 h-full bg-gradient-to-b from-transparent via-blue-500 to-transparent animate-pulse blur-sm"></div>
+        <div className="absolute top-0 left-1/2 w-0.5 h-full bg-gradient-to-b from-transparent via-purple-500 to-transparent animate-pulse blur-sm" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute top-0 right-1/4 w-0.5 h-full bg-gradient-to-b from-transparent via-pink-500 to-transparent animate-pulse blur-sm" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-0 left-1/6 w-0.5 h-full bg-gradient-to-b from-transparent via-cyan-400 to-transparent animate-pulse blur-sm" style={{ animationDelay: '2.5s' }}></div>
+        <div className="absolute top-0 right-1/6 w-0.5 h-full bg-gradient-to-b from-transparent via-indigo-400 to-transparent animate-pulse blur-sm" style={{ animationDelay: '3s' }}></div>
+        <div className="absolute top-1/4 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-blue-400 to-transparent animate-pulse blur-sm" style={{ animationDelay: '0.5s' }}></div>
+        <div className="absolute bottom-1/4 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-purple-400 to-transparent animate-pulse blur-sm" style={{ animationDelay: '1.5s' }}></div>
+        <div className="absolute top-1/3 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-pink-400 to-transparent animate-pulse blur-sm" style={{ animationDelay: '3.5s' }}></div>
+        <div className="absolute bottom-1/3 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-cyan-400 to-transparent animate-pulse blur-sm" style={{ animationDelay: '4s' }}></div>
+      </div>
+      <div className="container mx-auto relative z-10">
         <div className="flex gap-6 md:gap-8 py-16 md:py-20 lg:py-40 items-center justify-center flex-col">
          
           <div className="flex gap-4 flex-col">

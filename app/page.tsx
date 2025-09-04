@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { MarqueeDemo } from '@/components/ui/marquee-demo'
 import { AnimatedTestimonialsDemo } from '@/components/ui/animated-testimonials-demo'
 import { TimelineDemo } from '@/components/ui/timeline-demo'
@@ -51,7 +52,7 @@ export default function Home() {
                   href="https://calendly.com/hello-coart/30min"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center px-8 py-3 border border-transparent rounded-full text-base font-medium bg-gradient-to-r from-blue-500 to-purple-600 text-white  md:py-4 md:text-lg md:px-10 transition-all duration-200 shadow-lg"
+                  className="inline-flex items-center justify-center px-8 py-3 border border-transparent rounded-full text-base font-medium bg-gradient-to-r from-[#0071BC] to-[#29ABE2] text-white  md:py-4 md:text-lg md:px-10 transition-all duration-200 shadow-lg"
                 >
                   Schedule a Discovery Call
                 </Link>
@@ -92,7 +93,14 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
-              <h3 className="text-2xl font-bold mb-4">CoArt Studio</h3>
+              <Image
+                src="/coart-logo.png"
+                alt="CoArt Studio Logo"
+                width={60}
+                height={20}
+                
+                className="mb-4"
+              />
               <p className="text-gray-400">
               Design, strategy, and automation—everything your business needs to succeed. Awarded 2025’s most innovative technology agency
               </p>

@@ -39,22 +39,21 @@ const Gallery6 = ({
       image: "/portfilo/boki.jpeg",
     },
     {
-      id: "item-3",
+      id: "item-2",
       title: "Solu",
       summary:
-        "A  mobile app empowering women to adopt and maintain a healthier lifestyle through personalized wellness programs, nutrition tracking, and community support.",
+        "A comprehensive mobile app empowering women to adopt and maintain a healthier lifestyle through personalized wellness programs, nutrition tracking, and community support.",
       url: "#",
       image: "/portfilo/solu-app.png",
     },
     {
-      id: "item-2",
+      id: "item-3",
       title: "Ryla AI",
       summary:
         "An advanced AI application tailored for fitness coaches, offering personalized workout program, progress tracking, and insightful analytics to elevate client engagement and results.",
       url: "#",
       image: "/portfilo/ryla.jpeg",
     },
-
     {
       id: "item-4",
       title: "Ellington AI Automation",

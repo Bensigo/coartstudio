@@ -45,7 +45,7 @@ function Hero() {
                 {titles.map((title, index) => (
                   <motion.span
                     key={index}
-                    className="absolute font-semibold"
+                    className="absolute font-semibold text-[#29ABE2]"
                     initial={{ opacity: 0, y: "-100" }}
                     transition={{ type: "spring", stiffness: 50 }}
                     animate={
@@ -72,7 +72,7 @@ function Hero() {
           </div>
           <div className="flex justify-center w-full max-w-md px-4">
             <a href="https://calendly.com/hello-coart/30min" target="_blank" rel="noopener noreferrer">
-              <Button size="lg" className="gap-4 w-full sm:w-auto bg-gradient-to-r from-blue-500 to-purple-600 text-white text-xl rounded-full" >
+              <Button size="lg" className="gap-4 w-full sm:w-auto bg-gradient-to-r from-[#0071BC] to-[#29ABE2] text-white text-xl rounded-full" >
                 Jump on a call <PhoneCall className="w-4 h-4" />
               </Button>
             </a>

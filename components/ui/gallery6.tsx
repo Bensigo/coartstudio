@@ -2,6 +2,7 @@
 
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -31,43 +32,44 @@ const Gallery6 = ({
   items = [
     {
       id: "item-1",
-      title: "Modern Web Applications",
+      title: "Boki",
       summary:
-        "Full-stack web applications built with React, Next.js, and TypeScript featuring responsive design and optimized performance.",
+        "A robust SaaS AI web application designed to streamline content marketing operations, providing intelligent tools for creation, scheduling, and analysis to boost your digital presence.",
       url: "#",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop&crop=entropy&auto=format",
-    },
-    {
-      id: "item-2",
-      title: "Mobile App Development",
-      summary:
-        "Cross-platform mobile applications with native performance, intuitive user interfaces, and seamless user experiences.",
-      url: "#",
-      image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=600&fit=crop&crop=entropy&auto=format",
+      image: "/portfilo/boki.jpeg",
     },
     {
       id: "item-3",
-      title: "E-commerce Solutions",
+      title: "Solu",
       summary:
-        "Comprehensive e-commerce platforms with payment integration, inventory management, and analytics dashboard.",
+        "A  mobile app empowering women to adopt and maintain a healthier lifestyle through personalized wellness programs, nutrition tracking, and community support.",
       url: "#",
-      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop&crop=entropy&auto=format",
+      image: "/portfilo/solu-app.png",
     },
     {
-      id: "item-4",
-      title: "Digital Marketing Campaigns",
+      id: "item-2",
+      title: "Ryla AI",
       summary:
-        "Data-driven digital marketing strategies with automated workflows, conversion tracking, and performance analytics.",
+        "An advanced AI application tailored for fitness coaches, offering personalized workout program, progress tracking, and insightful analytics to elevate client engagement and results.",
       url: "#",
-      image: "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=800&h=600&fit=crop&crop=entropy&auto=format",
+      image: "/portfilo/ryla.jpeg",
+    },
+
+    {
+      id: "item-4",
+      title: "Ellington AI Automation",
+      summary:
+        "Cutting-edge AI lead generation automation system that leverages data-driven insights from the market to identify high-potential leads and optimize outreach strategies.",
+      url: "#",
+      image: "/portfilo/Ellington.png",
     },
     {
       id: "item-5",
       title: "Brand Identity Design",
       summary:
-        "Complete brand identity systems including logos, typography, color palettes, and brand guidelines for digital and print media.",
+        "Complete brand identity systems including logos, typography, color palettes, and brand guidelines for digital and print media, ensuring a cohesive and impactful brand presence.",
       url: "#",
-      image: "https://images.unsplash.com/photo-1558655146-364adaf1fcc9?w=800&h=600&fit=crop&crop=entropy&auto=format",
+      image: "/portfilo/jarguar.png",
     },
   ],
 }: Gallery6Props) => {
@@ -153,9 +155,10 @@ const Gallery6 = ({
                     <div className="flex aspect-[3/2] overflow-clip rounded-xl">
                       <div className="flex-1">
                         <div className="relative h-full w-full origin-bottom transition duration-300 group-hover:scale-105">
-                          <img
+                          <Image
                             src={item.image}
                             alt={item.title}
+                            fill
                             className="h-full w-full object-cover object-center"
                           />
                         </div>
@@ -168,10 +171,10 @@ const Gallery6 = ({
                   <div className="mb-8 line-clamp-2 text-sm text-muted-foreground md:mb-12 md:text-base lg:mb-9">
                     {item.summary}
                   </div>
-                  <div className="flex items-center text-sm">
+                  {/* <div className="flex items-center text-sm">
                     Read more{" "}
                     <ArrowRight className="ml-2 size-5 transition-transform group-hover:translate-x-1" />
-                  </div>
+                  </div> */}
                 </a>
               </CarouselItem>
             ))}

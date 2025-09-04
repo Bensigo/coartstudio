@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Flexy Global - UI/UX Design Agency',
-  description: 'Create your human-centric digital products with us. Flexy Global is a UI/UX design agency that will help you with your product launch, support and scale.',
+  title: 'CoArt Studio - Digital Agency',
+  description: 'Create your human-centric digital products with us. CoArt Studio is a digtal agency that will help you with your product, brand, and scale.',
 }
 
 export default function RootLayout({

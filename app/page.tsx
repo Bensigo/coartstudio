@@ -101,10 +101,38 @@ export default function Home() {
             <div>
               <h4 className="font-bold mb-4">Services</h4>
               <ul className="space-y-2 text-gray-400">
-                <li><Link href="/seo" className="hover:text-white transition-colors">SEO</Link></li>
-                <li><Link href="/ppc" className="hover:text-white transition-colors">PPC</Link></li>
-                <li><Link href="/content" className="hover:text-white transition-colors">Content Marketing</Link></li>
-                <li><Link href="/web-design" className="hover:text-white transition-colors">Web Design</Link></li>
+                <li>
+                  <div className="group relative h-6 flex items-center">
+                    <span className="absolute inset-0 group-hover:opacity-0 group-hover:invisible transition-all duration-300 cursor-pointer">Brand Design</span>
+                    <span className="absolute inset-0 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 text-gray-400 text-sm">
+                      Identity, logos, visual systems
+                    </span>
+                  </div>
+                </li>
+                <li>
+                  <div className="group relative h-6 flex items-center">
+                    <span className="absolute inset-0 group-hover:opacity-0 group-hover:invisible transition-all duration-300 cursor-pointer">Content & Strategy</span>
+                    <span className="absolute inset-0 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 text-gray-400 text-sm">
+                      Social media, marketing, and growth strategies
+                    </span>
+                  </div>
+                </li>
+                <li>
+                  <div className="group relative h-6 flex items-center">
+                    <span className="absolute inset-0 group-hover:opacity-0 group-hover:invisible transition-all duration-300 cursor-pointer">Web & Mobile Apps</span>
+                    <span className="absolute inset-0 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 text-gray-400 text-sm">
+                      Custom websites & cross-platform mobile solutions
+                    </span>
+                  </div>
+                </li>
+                <li>
+                  <div className="group relative h-6 flex items-center">
+                    <span className="absolute inset-0 group-hover:opacity-0 group-hover:invisible transition-all duration-300 cursor-pointer">AI Automation</span>
+                    <span className="absolute inset-0 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 text-gray-400 text-sm">
+                      Streamlined workflows & smart tools
+                    </span>
+                  </div>
+                </li>
               </ul>
             </div>
             

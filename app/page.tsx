@@ -18,8 +18,7 @@ export default function Home() {
     { name: 'Services', url: '#services', icon: Briefcase },
     { name: 'Portfolio', url: '#portfolio', icon: User },
     { name: 'Process', url: '#process', icon: Users },
-    { name: 'Testimonials', url: '#testimonials', icon: FileText },
-    { name: 'Contact', url: '#contact', icon: Phone },
+   
   ]
 
   return (

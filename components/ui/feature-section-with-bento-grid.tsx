@@ -33,9 +33,9 @@ function Feature() {
             <div className="bg-purple-50 rounded-lg p-6 flex justify-between flex-col">
               <Palette className="w-8 h-8 stroke-1 text-purple-600" />
               <div className="flex flex-col">
-                <h3 className="text-xl tracking-tight">Brand Design</h3>
+                <h3 className="text-xl tracking-tight">Branding</h3>
                 <p className="text-muted-foreground text-sm">
-                Comprehensive branding built to stand out.
+                Comprehensive personal or business branding, built to stand out.
                 </p>
               </div>
             </div>

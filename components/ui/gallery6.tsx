@@ -28,7 +28,7 @@ interface Gallery6Props {
 
 const Gallery6 = ({
   heading = "Portfolio",
-  demoUrl = "#",
+  demoUrl = "https://coart2018.wixsite.com/digitaldesigncontent",
   items = [
     {
       id: "item-1",

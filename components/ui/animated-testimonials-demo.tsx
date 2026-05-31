@@ -5,7 +5,7 @@ function AnimatedTestimonialsDemo() {
   
     {
       quote:
-        "We needed a partner who could handle design, strategy, and execution seamlessly. CoArt Studio exceeded expectations at every step — from branding to automation. Their impact on our campaigns has been nothing short of game-changing.",
+        "We needed a partner who could handle design, strategy, and execution seamlessly. CoArt Studio exceeded expectations at every step: from branding to automation. Their impact on our campaigns has been nothing short of game-changing.",
       name: "James Author",
       designation: "VP Marketing, Jaguar",
       src: "/testimonials/eli.jpeg"

@@ -3,6 +3,8 @@
 :root {
   --sky-400: #38bdf8;
   --sky-500: #0ea5e9;
+  --coart-blue: #0071BC;
+  --coart-blue-light: #29ABE2;
 }
 
 .dark {
@@ -20,9 +22,29 @@
   .btn-primary {
     @apply bg-black text-white px-6 py-3 rounded-full hover:bg-gray-800 transition-colors;
   }
-  
+
   .btn-secondary {
     @apply bg-white text-black px-6 py-3 rounded-full border border-gray-300 hover:bg-gray-50 transition-colors;
+  }
+
+  /* Liquid glass surfaces */
+  .glass {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.28);
+  }
+  .glass-strong {
+    background: rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(32px);
+    -webkit-backdrop-filter: blur(32px);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+  }
+  .glass-dark {
+    background: rgba(0, 0, 0, 0.22);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
   }
 }
 
@@ -30,13 +52,23 @@
   .text-balance {
     text-wrap: balance;
   }
-  
+
   .animate-marquee {
     animation: marquee var(--duration, 30s) linear infinite;
   }
-  
+
   .animate-marquee-reverse {
     animation: marquee-reverse var(--duration, 30s) linear infinite;
+  }
+
+  /* Gentle pulsing glow for CTAs */
+  .animate-pulse-glow {
+    animation: pulse-glow 2.4s ease-in-out infinite;
+  }
+
+  /* Ping dot for "tap to expand" */
+  .animate-ping-slow {
+    animation: ping 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
   }
 }
 
@@ -49,5 +81,21 @@
 @keyframes marquee-reverse {
   to {
     transform: translateX(50%);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(0, 113, 188, 0.35), 0 4px 20px rgba(0, 113, 188, 0.25);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(0, 113, 188, 0), 0 4px 28px rgba(41, 171, 226, 0.45);
+  }
+}
+
+@keyframes ping {
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
   }
 }

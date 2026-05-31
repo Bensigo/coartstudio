@@ -67,11 +67,11 @@ function Hero() {
             </h1>
 
             <p className="text-base sm:text-lg md:text-xl leading-relaxed tracking-tight text-muted-foreground max-w-2xl text-center px-4">
-            Running a business is complex, but growth shouldn’t be. We provide end-to-end solutions—from branding and websites to AI-powered automation—so your business works smarter, not harder.
+            Running a business is complex, but growth shouldn’t be. We provide end-to-end solutions: from branding and websites to AI-powered automation, helping your business work smarter, not harder.
             </p>
           </div>
           <div className="flex justify-center w-full max-w-md px-4">
-            <a href="https://calendly.com/hello-coart/30min" target="_blank" rel="noopener noreferrer">
+            <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ01oD-PXnxFpUPT2V5HC9Zt_zVJVOrjrISIUFOJnTj12lIWoUAI7gRwzY7f8FEpnCcVdpXweDU8" target="_blank" rel="noopener noreferrer">
               <Button size="lg" className="gap-4 w-full sm:w-auto bg-gradient-to-r from-[#0071BC] to-[#29ABE2] text-white text-xl rounded-full" >
                 Jump on a call <PhoneCall className="w-4 h-4" />
               </Button>

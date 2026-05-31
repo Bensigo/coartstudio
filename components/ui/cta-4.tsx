@@ -1,7 +1,5 @@
 import { ArrowRight, Check } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
-
 interface Cta4Props {
   title?: string;
   description?: string;
@@ -26,25 +24,41 @@ export const Cta4 = ({
   items = defaultItems,
 }: Cta4Props) => {
   return (
-    <section className="py-32 ">
+    <section className="py-32">
       <div className="container mx-auto">
         <div className="flex justify-center">
-          <div className="max-w-5xl">
-            <div className="flex flex-col items-start justify-between gap-8 rounded-lg bg-blue-50 px-6 py-10 md:flex-row lg:px-20 lg:py-16">
+          <div className="max-w-5xl w-full px-4">
+            <div className="flex flex-col items-start justify-between gap-8 rounded-3xl bg-blue-50 px-6 py-10 md:flex-row lg:px-20 lg:py-16"
+              style={{
+                background: "linear-gradient(145deg, #eef4fd 0%, #dbeafe 100%)",
+                border: "1.5px solid rgba(0,113,188,0.12)",
+              }}
+            >
               <div className="md:w-1/2">
                 <h4 className="mb-1 text-2xl font-bold md:text-3xl">{title}</h4>
                 <p className="text-muted-foreground">{description}</p>
-                <Button className="mt-6" asChild>
-                  <a href={buttonUrl} target="_blank">
-                    {buttonText} <ArrowRight className="size-4" />
-                  </a>
-                </Button>
+                <a
+                  href={buttonUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-6 inline-flex items-center gap-2 px-7 py-3 rounded-full text-white font-semibold text-base transition-all duration-200 hover:opacity-90 hover:scale-105 active:scale-95 animate-pulse-glow"
+                  style={{
+                    background: "linear-gradient(135deg, #0071BC 0%, #29ABE2 100%)",
+                    boxShadow: "0 4px 20px rgba(0,113,188,0.35)",
+                  }}
+                >
+                  {buttonText}
+                  <ArrowRight className="w-4 h-4" />
+                </a>
               </div>
               <div className="md:w-1/3">
                 <ul className="flex flex-col space-y-2 text-sm font-medium">
                   {items.map((item, idx) => (
-                    <li className="flex items-center" key={idx}>
-                      <Check className="mr-4 size-4 flex-shrink-0" />
+                    <li className="flex items-center gap-3" key={idx}>
+                      <Check
+                        className="size-4 flex-shrink-0"
+                        style={{ color: "#0071BC" }}
+                      />
                       {item}
                     </li>
                   ))}

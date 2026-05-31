@@ -18,7 +18,7 @@ const Logos = {
     <Image src="/companies/sobha.svg" alt="Sobha" fill className="h-full object-contain" />
   ),
   solu: () => (
-    <Image src="/companies/solu.png" alt="Solu" fill className="h-full object-contain" />
+    <Image src="/companies/solu.png" alt="Solu" width={88} height={88} className="object-contain" />
   ),
   talabat: () => (
     <Image src="/companies/talabat.svg" alt="Talabat" fill className="h-full object-contain" />

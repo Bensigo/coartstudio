@@ -11,7 +11,7 @@ export function TimelineDemo() {
           <div className="mb-6 md:mb-8">
             <h3 className="text-lg md:text-2xl font-bold text-black mb-2 md:mb-4">Discover & Strategize</h3>
             <p className="text-neutral-800 text-sm md:text-base font-normal mb-4">
-            We dive deep into your business, brand, and goals—identifying challenges, opportunities, and the best path forward. Every strategy we craft is tailored to you.
+            We dive deep into your business, brand, and goals, identifying challenges, opportunities, and the best path forward. Every strategy we craft is tailored to you.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
@@ -60,7 +60,7 @@ export function TimelineDemo() {
           <div className="mb-6 md:mb-8">
             <h3 className="text-lg md:text-2xl font-bold text-black mb-2 md:mb-4">Optimize & Grow</h3>
             <p className="text-neutral-800 text-sm md:text-base font-normal mb-4">
-            We track performance, refine continuously, and scale what works—ensuring your business not only grows but stays ahead.
+            We track performance, refine continuously, and scale what works, ensuring your business not only grows but stays ahead.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">

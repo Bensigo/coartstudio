@@ -304,17 +304,23 @@ const Gallery6 = ({
     };
   }, [carouselApi, pauseAutoScroll]);
 
-  // Mouse wheel → horizontal scroll in carousel
+  // Mouse wheel → horizontal scroll in carousel (throttled to 50% speed)
+  const wheelCooldownRef = useRef(false);
   useEffect(() => {
     const el = carouselRef.current;
     if (!el || !carouselApi) return;
 
     const handleWheel = (e: WheelEvent) => {
-      // Only intercept when the wheel has meaningful horizontal or vertical delta
       const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
       if (delta === 0) return;
 
       e.preventDefault();
+
+      // Throttle: skip every other scroll event to halve the speed
+      if (wheelCooldownRef.current) return;
+      wheelCooldownRef.current = true;
+      setTimeout(() => { wheelCooldownRef.current = false; }, 400);
+
       pauseAutoScroll();
 
       if (delta > 0) {

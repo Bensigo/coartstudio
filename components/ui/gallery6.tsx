@@ -1,9 +1,10 @@
 "use client";
 
-import { ArrowUpRight, X, Sparkles } from "lucide-react";
+import { ArrowUpRight, ArrowLeft, ArrowRight, X, Sparkles } from "lucide-react";
 import { useEffect, useRef, useState, useCallback } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
+import { Button } from "@/components/ui/button";
 import {
   Carousel,
   CarouselApi,
@@ -270,30 +271,64 @@ const Gallery6 = ({
   const [carouselApi, setCarouselApi] = useState<CarouselApi>();
   const [selectedItem, setSelectedItem] = useState<GalleryItem | null>(null);
   const [isUserScrolling, setIsUserScrolling] = useState(false);
+  const [canScrollPrev, setCanScrollPrev] = useState(false);
+  const [canScrollNext, setCanScrollNext] = useState(false);
   const resumeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const carouselRef = useRef<HTMLDivElement>(null);
 
-  // Pause auto-scroll when user drags, resume 2 s after the carousel settles
-  const handleSettle = useCallback(() => {
+  // Pause auto-scroll on any user interaction, resume 3s after settle
+  const pauseAutoScroll = useCallback(() => {
+    setIsUserScrolling(true);
     if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
-    resumeTimerRef.current = setTimeout(() => setIsUserScrolling(false), 2000);
+    resumeTimerRef.current = setTimeout(() => setIsUserScrolling(false), 3000);
   }, []);
 
+  // Track scroll buttons state
   useEffect(() => {
     if (!carouselApi) return;
-    const handlePointerDown = () => {
-      setIsUserScrolling(true);
-      if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
+    const updateSelection = () => {
+      setCanScrollPrev(carouselApi.canScrollPrev());
+      setCanScrollNext(carouselApi.canScrollNext());
     };
-    carouselApi.on("pointerDown", handlePointerDown);
-    carouselApi.on("settle", handleSettle);
+    updateSelection();
+    carouselApi.on("select", updateSelection);
+    carouselApi.on("pointerDown", pauseAutoScroll);
+    carouselApi.on("settle", () => {
+      // After settle, start the 3s countdown to resume
+      if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
+      resumeTimerRef.current = setTimeout(() => setIsUserScrolling(false), 3000);
+    });
     return () => {
-      carouselApi.off("pointerDown", handlePointerDown);
-      carouselApi.off("settle", handleSettle);
+      carouselApi.off("select", updateSelection);
       if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
     };
-  }, [carouselApi, handleSettle]);
+  }, [carouselApi, pauseAutoScroll]);
 
-  // Auto-advance: paused while user is scrolling or a modal is open
+  // Mouse wheel → horizontal scroll in carousel
+  useEffect(() => {
+    const el = carouselRef.current;
+    if (!el || !carouselApi) return;
+
+    const handleWheel = (e: WheelEvent) => {
+      // Only intercept when the wheel has meaningful horizontal or vertical delta
+      const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
+      if (delta === 0) return;
+
+      e.preventDefault();
+      pauseAutoScroll();
+
+      if (delta > 0) {
+        carouselApi.scrollNext();
+      } else {
+        carouselApi.scrollPrev();
+      }
+    };
+
+    el.addEventListener("wheel", handleWheel, { passive: false });
+    return () => el.removeEventListener("wheel", handleWheel);
+  }, [carouselApi, pauseAutoScroll]);
+
+  // Auto-advance: paused while user is interacting or a modal is open
   useEffect(() => {
     if (!carouselApi || isUserScrolling || selectedItem) return;
     const id = setInterval(() => carouselApi.scrollNext(), 3800);
@@ -316,13 +351,39 @@ const Gallery6 = ({
               <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-1" />
             </a>
           </div>
-          <p className="mt-4 text-sm text-gray-400 italic md:mt-0">
-            Click any project to see the full story
-          </p>
+          <div className="mt-8 flex shrink-0 items-center justify-start gap-3 md:mt-0">
+            <p className="text-sm text-gray-400 italic mr-2 hidden md:block">
+              Click any project to see the full story
+            </p>
+            <Button
+              size="icon"
+              variant="outline"
+              onClick={() => {
+                pauseAutoScroll();
+                carouselApi?.scrollPrev();
+              }}
+              disabled={!canScrollPrev}
+              className="disabled:pointer-events-auto rounded-full"
+            >
+              <ArrowLeft className="size-5" />
+            </Button>
+            <Button
+              size="icon"
+              variant="outline"
+              onClick={() => {
+                pauseAutoScroll();
+                carouselApi?.scrollNext();
+              }}
+              disabled={!canScrollNext}
+              className="disabled:pointer-events-auto rounded-full"
+            >
+              <ArrowRight className="size-5" />
+            </Button>
+          </div>
         </div>
       </div>
 
-      <div className="w-full">
+      <div className="w-full" ref={carouselRef}>
         <Carousel
           setApi={setCarouselApi}
           opts={{ loop: true, dragFree: true }}

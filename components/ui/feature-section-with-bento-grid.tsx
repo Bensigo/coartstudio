@@ -27,7 +27,17 @@ interface ServiceData {
   blurb: string;
   socialProof: string;
   subServices: SubService[];
+  bgImage: string;
+  bgPosition?: string;
+  bgSize?: string;
 }
+
+const serviceBgImages: Record<string, string> = {
+  web: "/services/web-mario.jpg",
+  branding: "/services/branding-tower.jpg",
+  ai: "/services/ai-walle.jpg",
+  marketing: "/services/marketing-dragon.jpg",
+};
 
 const services: ServiceData[] = [
   {
@@ -40,6 +50,9 @@ const services: ServiceData[] = [
     borderColor: "rgba(0,113,188,0.22)",
     overlayFrom: "#0071BC",
     overlayTo: "#29ABE2",
+    bgImage: serviceBgImages.web,
+    bgPosition: "right 85%",
+    bgSize: "65%",
     blurb:
       "We build fast, scalable, and beautiful digital products: websites, mobile apps, and SaaS platforms designed to convert visitors into customers and turn ideas into real revenue.",
     socialProof:
@@ -71,12 +84,13 @@ const services: ServiceData[] = [
     id: "branding",
     name: "Branding",
     icon: Palette,
-    gradientFrom: "rgba(124,58,237,0.09)",
-    gradientTo: "rgba(167,139,250,0.14)",
-    iconColor: "#7C3AED",
-    borderColor: "rgba(124,58,237,0.20)",
-    overlayFrom: "#7C3AED",
-    overlayTo: "#A78BFA",
+    gradientFrom: "rgba(180,60,20,0.09)",
+    gradientTo: "rgba(210,120,40,0.14)",
+    iconColor: "#B43C14",
+    borderColor: "rgba(180,60,20,0.20)",
+    overlayFrom: "#B43C14",
+    overlayTo: "#D27828",
+    bgImage: serviceBgImages.branding,
     blurb:
       "We craft brand identities that make your business impossible to ignore and easy to trust, across every platform, touchpoint, and audience.",
     socialProof:
@@ -108,12 +122,15 @@ const services: ServiceData[] = [
     id: "ai",
     name: "AI",
     icon: Sparkles,
-    gradientFrom: "rgba(8,145,178,0.09)",
-    gradientTo: "rgba(6,182,212,0.14)",
-    iconColor: "#0891B2",
-    borderColor: "rgba(8,145,178,0.20)",
-    overlayFrom: "#0071BC",
-    overlayTo: "#06B6D4",
+    gradientFrom: "rgba(202,160,20,0.09)",
+    gradientTo: "rgba(234,190,40,0.14)",
+    iconColor: "#B8860B",
+    borderColor: "rgba(202,160,20,0.20)",
+    overlayFrom: "#C8A000",
+    overlayTo: "#EAC028",
+    bgImage: serviceBgImages.ai,
+    bgPosition: "right center",
+    bgSize: "contain",
     blurb:
       "We embed AI where it creates the most impact: automating your busiest workflows, uncovering your best leads, and making your brand visible where your next customer is already searching.",
     socialProof:
@@ -151,6 +168,7 @@ const services: ServiceData[] = [
     borderColor: "rgba(234,88,12,0.18)",
     overlayFrom: "#EA580C",
     overlayTo: "#FB923C",
+    bgImage: serviceBgImages.marketing,
     blurb:
       "We build and execute marketing strategies that attract the right audience, convert them into paying customers, and build the kind of brand loyalty that compounds over time.",
     socialProof:
@@ -314,7 +332,7 @@ function ServiceOverlay({
             href={CALENDAR_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-2 w-full py-4 rounded-2xl text-white font-semibold text-sm md:text-base transition-all duration-200 hover:opacity-90 hover:scale-[1.02] active:scale-[0.98]"
+            className="flex items-center justify-center gap-2 w-full py-4 px-5 rounded-2xl text-white font-semibold text-xs sm:text-sm md:text-base text-center leading-snug transition-all duration-200 hover:opacity-90 hover:scale-[1.02] active:scale-[0.98]"
             style={{
               background: `linear-gradient(135deg, ${service.overlayFrom} 0%, ${service.overlayTo} 100%)`,
               boxShadow: `0 4px 20px ${service.overlayFrom}44`,
@@ -338,60 +356,122 @@ function ServiceTile({
   onOpen: () => void;
 }) {
   const Icon = service.icon;
+  const isRealImage = !service.bgImage.startsWith("data:");
 
   return (
     <button
       onClick={onOpen}
-      className="relative rounded-3xl p-6 md:p-7 flex flex-col justify-between text-left group transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl min-h-[200px]"
+      className="relative rounded-3xl overflow-hidden text-left group transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl min-h-[200px]"
       style={{
-        background: `linear-gradient(135deg, ${service.gradientFrom}, ${service.gradientTo})`,
-        border: `1.5px solid ${service.borderColor}`,
-        backdropFilter: "blur(12px)",
-        WebkitBackdropFilter: "blur(12px)",
-        boxShadow:
-          "0 4px 24px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.55)",
+        border: `1.5px solid ${isRealImage ? "rgba(255,255,255,0.18)" : service.borderColor}`,
+        boxShadow: isRealImage
+          ? "0 8px 32px rgba(0,0,0,0.18), inset 0 1px 0 rgba(255,255,255,0.25)"
+          : "0 4px 24px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.55)",
       }}
     >
-      {/* Icon */}
+      {/* Background image layer */}
       <div
-        className="w-10 h-10 rounded-xl flex items-center justify-center"
+        className="absolute inset-0"
         style={{
-          background: "rgba(255,255,255,0.55)",
-          border: `1px solid ${service.borderColor}`,
+          backgroundColor: isRealImage ? "#ffffff" : undefined,
+          backgroundImage: `url("${service.bgImage}")`,
+          backgroundSize: service.bgSize || "cover",
+          backgroundPosition: service.bgPosition || "center",
+          backgroundRepeat: "no-repeat",
         }}
-      >
-        <Icon
-          className="w-5 h-5"
-          style={{ color: service.iconColor }}
-          strokeWidth={1.8}
+      />
+      {isRealImage ? (
+        <>
+          {/* Liquid crystal glass — clear with bottom gradient for text */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(180deg, rgba(255,255,255,0.0) 0%, rgba(0,0,0,0.45) 100%)",
+            }}
+          />
+          {/* Glass edge glow */}
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              boxShadow: [
+                "inset 2px 0 6px -2px rgba(255,255,255,0.15)",
+                "inset -2px 0 6px -2px rgba(255,255,255,0.12)",
+                "inset 0 2px 6px -2px rgba(255,255,255,0.18)",
+              ].join(", "),
+              borderRadius: "inherit",
+            }}
+          />
+          {/* Top rim highlight */}
+          <div
+            className="absolute inset-x-0 top-0 h-[2px] pointer-events-none"
+            style={{
+              background:
+                "linear-gradient(90deg, transparent 8%, rgba(255,255,255,0.3) 25%, rgba(255,255,255,0.5) 50%, rgba(255,255,255,0.3) 75%, transparent 92%)",
+            }}
+          />
+        </>
+      ) : (
+        <div
+          className="absolute inset-0"
+          style={{
+            background: `linear-gradient(135deg, ${service.gradientFrom}, ${service.gradientTo})`,
+            backdropFilter: "blur(2px)",
+            WebkitBackdropFilter: "blur(2px)",
+          }}
         />
-      </div>
-
-      {/* Name + pulsing hint */}
-      <div className="mt-auto pt-6">
-        <h3
-          className="text-xl md:text-2xl font-bold tracking-tight"
-          style={{ color: service.iconColor }}
+      )}
+      {/* Content */}
+      <div className="relative z-10 p-6 md:p-7 flex flex-col justify-between h-full min-h-[200px]">
+        {/* Icon */}
+        <div
+          className="w-10 h-10 rounded-xl flex items-center justify-center"
+          style={{
+            background: isRealImage ? "rgba(255,255,255,0.20)" : "rgba(255,255,255,0.65)",
+            border: `1px solid ${isRealImage ? "rgba(255,255,255,0.30)" : service.borderColor}`,
+            backdropFilter: "blur(12px)",
+            WebkitBackdropFilter: "blur(12px)",
+          }}
         >
-          {service.name}
-        </h3>
-        <div className="flex items-center gap-2 mt-3 opacity-60 group-hover:opacity-100 transition-opacity duration-200">
-          <span className="relative flex h-2 w-2">
-            <span
-              className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75"
-              style={{ backgroundColor: service.iconColor }}
-            />
-            <span
-              className="relative inline-flex rounded-full h-2 w-2"
-              style={{ backgroundColor: service.iconColor }}
-            />
-          </span>
-          <span
-            className="text-xs font-semibold uppercase tracking-widest"
-            style={{ color: service.iconColor }}
+          <Icon
+            className="w-5 h-5"
+            style={{ color: isRealImage ? "#fff" : service.iconColor }}
+            strokeWidth={1.8}
+          />
+        </div>
+
+        {/* Name + pulsing hint */}
+        <div className="mt-auto pt-6">
+          <h3
+            className="text-xl md:text-2xl font-bold tracking-tight"
+            style={{
+              color: isRealImage ? "#fff" : service.iconColor,
+              textShadow: isRealImage ? "0 2px 8px rgba(0,0,0,0.5)" : "none",
+            }}
           >
-            Tap to explore
-          </span>
+            {service.name}
+          </h3>
+          <div className="flex items-center gap-2 mt-3 opacity-70 group-hover:opacity-100 transition-opacity duration-200">
+            <span className="relative flex h-2 w-2">
+              <span
+                className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75"
+                style={{ backgroundColor: isRealImage ? "#fff" : service.iconColor }}
+              />
+              <span
+                className="relative inline-flex rounded-full h-2 w-2"
+                style={{ backgroundColor: isRealImage ? "#fff" : service.iconColor }}
+              />
+            </span>
+            <span
+              className="text-xs font-semibold uppercase tracking-widest"
+              style={{
+                color: isRealImage ? "#fff" : service.iconColor,
+                textShadow: isRealImage ? "0 1px 4px rgba(0,0,0,0.5)" : "none",
+              }}
+            >
+              Tap to explore
+            </span>
+          </div>
         </div>
       </div>
     </button>

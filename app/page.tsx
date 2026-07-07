@@ -49,10 +49,18 @@ export default function Home() {
        <section id="portfolio">
         <Gallery6 />
       </section>
+      {/* Mobile separator between portfolio and process */}
+      <div className="block md:hidden mx-6">
+        <div className="h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent" />
+      </div>
       {/* Interactive Process Timeline */}
       <section id="process">
         <TimelineDemo />
       </section>
+      {/* Mobile separator between process and testimonials */}
+      <div className="block md:hidden mx-6">
+        <div className="h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent" />
+      </div>
       {/* Animated Testimonials Section */}
       <section id="testimonials">
         <AnimatedTestimonialsDemo />

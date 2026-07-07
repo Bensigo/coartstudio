@@ -342,25 +342,37 @@ const Gallery6 = ({
   }, [carouselApi, isUserScrolling, selectedItem]);
 
   return (
-    <section className="py-32">
+    <section className="pt-16 pb-20 md:py-32">
       <div className="container mx-auto px-4">
-        <div className="mb-8 flex flex-col justify-between md:mb-14 md:flex-row md:items-end lg:mb-16">
+        <div className="mb-6 flex flex-col justify-between md:mb-14 md:flex-row md:items-end lg:mb-16">
           <div>
             <h2 className="mb-3 text-3xl font-semibold md:mb-4 md:text-4xl lg:mb-6">
               {heading}
             </h2>
+            {/* Mobile: blue pulsing button | Desktop: text link */}
             <a
               href={demoUrl}
-              className="group flex items-center gap-1 text-sm font-medium md:text-base lg:text-lg"
+              className="hidden md:flex group items-center gap-1 text-sm font-medium md:text-base lg:text-lg"
             >
-              View all projects
+              View full portfolio
               <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-1" />
             </a>
+            <a
+              href={demoUrl}
+              className="md:hidden inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-white text-sm font-semibold animate-pulse-glow"
+              style={{
+                background: "linear-gradient(135deg, #0071BC 0%, #29ABE2 100%)",
+              }}
+            >
+              View full portfolio
+              <ArrowUpRight className="size-4" />
+            </a>
           </div>
-          <div className="mt-8 flex shrink-0 items-center justify-start gap-3 md:mt-0">
+          <div className="mt-6 flex shrink-0 items-center justify-start gap-3 md:mt-0">
             <p className="text-sm text-gray-400 italic mr-2 hidden md:block">
               Click any project to see the full story
             </p>
+            {/* Nav arrows: desktop only */}
             <Button
               size="icon"
               variant="outline"
@@ -369,7 +381,7 @@ const Gallery6 = ({
                 carouselApi?.scrollPrev();
               }}
               disabled={!canScrollPrev}
-              className="disabled:pointer-events-auto rounded-full"
+              className="disabled:pointer-events-auto rounded-full hidden md:flex"
             >
               <ArrowLeft className="size-5" />
             </Button>
@@ -381,10 +393,18 @@ const Gallery6 = ({
                 carouselApi?.scrollNext();
               }}
               disabled={!canScrollNext}
-              className="disabled:pointer-events-auto rounded-full"
+              className="disabled:pointer-events-auto rounded-full hidden md:flex"
             >
               <ArrowRight className="size-5" />
             </Button>
+            {/* Mobile: swipe hint */}
+            <div className="flex md:hidden items-center gap-2 text-gray-400">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M5 12h14" />
+                <path d="m12 5 7 7-7 7" />
+              </svg>
+              <span className="text-xs font-medium">Swipe to explore</span>
+            </div>
           </div>
         </div>
       </div>
